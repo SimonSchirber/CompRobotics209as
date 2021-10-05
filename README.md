@@ -5,7 +5,7 @@ Computational Robotics
 The grid dimensions, obstacles, icecream stops, road stops, and intial position are defined.
 The script lists/defines:
 - All states, which is equivalent to every spot on the grid
-- All transitions, which are mathematically defined as [State, transistion, State] and include transitions that have non-zero probability
+- All transitions, which are mathematically defined as [State, action, State] and include transitions that have non-zero probability
 - Number of transitions: 3125
 - Number of non-zero probabilty transitions: 73 (around 2.3% of transitions non-zero probability)
 
