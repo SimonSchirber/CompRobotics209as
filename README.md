@@ -14,4 +14,6 @@ With no direction from sensors, or probablistic movements give, a "move" functio
 ## Week 2:
 This week the script was redesigned to take in an action, and generate probabilites for transtions while playing the game. The game also prints the observation after a transition, but it should note that this cannot be computed when it reaches an ice cream store as the distance = 0 and 1/0 is not possible, so when this happens it simply prints "at ice cream store". There is also now a GUI that displays the grid and where the robot, ice cream store, barriers, and road is. Movement are made by typing in input like u,d,l,r,s for up, down , left, right, stay.
 
+We need to come up with a more general function/script that can take in any list of States, Actions, Probabilities, and Observations as this can only handle specific scenarios.
+
 
