@@ -11,3 +11,7 @@ The script lists/defines:
 
 With no direction from sensors, or probablistic movements give, a "move" function is built to take the initial square and amount of desired moves, and move the piece randomly according to the calculated non-zero probabilty transitions in that state for the amount of listed moves. Each time a move happens, the possible transitions for that state are listed.
 
+## Week 2:
+This week the script was redesigned to take in an action, and generate probabilites for transtions while playing the game. The game also prints the observation after a transition, but it should note that this cannot be computed when it reaches an ice cream store as the distance = 0 and 1/0 is not possible, so when this happens it simply prints "at ice cream store". There is also now a GUI that displays the grid and where the robot, ice cream store, barriers, and road is. Movement are made by typing in input like u,d,l,r,s for up, down , left, right, stay.
+
+
