@@ -10,7 +10,28 @@ class GridWorldMDP(MDP):
 		self.N = N #columns
 		self.Maze = np.zeros((M, N))
 		self.agent_state = agent_state
-		self.goal_state = 55
+		self.state_rewards = {
+								(7,5) : 5,
+								(7,2) : 10,
+								(9, 9): -10,
+								(9, 8): -10,
+								(9, 7): -10,
+								(9, 6): -10,
+								(9, 5): -10,
+								(9, 4): -10,
+								(9, 3): -10,
+								(9, 2): -10,
+								(9, 1): -10,
+								(9, 0): -10,
+							}
+		self.blocks = [
+						(7,3),
+						(6,3),
+						(7,4),
+						(6,4),
+						(7,6),
+						(6,6)
+					  ]
 		self.Pe = 0.3
 
 	def getState(self, i):
@@ -25,6 +46,10 @@ class GridWorldMDP(MDP):
 		return actions[i]
 
 	def getTransitionProbability(self, i, j, k):
+		rowN, colN = self.getState(k)
+		if (rowN, colN) in self.blocks:
+			return 0
+
 		next_state = self.getNextState(i, j)
 		if k == next_state:
 			return 1-self.Pe
@@ -97,8 +122,10 @@ class GridWorldMDP(MDP):
 		self.Maze[row][col] = 0
 
 	def getReward(self, i , j, k):
-		if k==self.goal_state:
-			return 10
+		row, col = self.getState(k)
+		for key, value in self.state_rewards.items():
+			if(row==key[0] and col==key[1]):
+				return value
 		return 0
 
 	def visualise(self):
@@ -131,25 +158,38 @@ class GridWorldMDP(MDP):
 		plt.pause(1.5)
 
 	def drawmaze(self, maze):
-		row, col = self.getState(self.goal_state)
-		maze[row][col] = 2
+		for place, value in self.state_rewards.items():
+			if value > -1:
+				maze[place[0]][place[1]] = 2  # a Green state
+			else:
+				maze[place[0]][place[1]] = -3 # a Red state
+
 		row, col = self.getState(self.agent_state)
 		maze[row][col] = 1
+
+		for place in self.blocks:
+			maze[place[0]][place[1]] = 3 # a Gray Block
 
 		plt.axes()
 		for x in range(len(maze)):
 		    for y in range(len(maze)):
-		        if maze[y][x] == 0:
+		        if maze[x][y] == 0:
 		            rectangle = plt.Rectangle((x, y), 1, 1, fc='white', ec="black")
 		            plt.gca().add_patch(rectangle)
-		        if maze[y][x] == 1:
-		            rectangle = plt.Rectangle((x, y), 1, 1, fc='red', ec="black")
+		        if maze[x][y] == 1:
+		            rectangle = plt.Rectangle((x, y), 1, 1, fc='blue', ec="black")
 		            plt.gca().add_patch(rectangle)
-		        if maze[y][x] == -1:
+		        if maze[x][y] == -1:
 		            rectangle = plt.Rectangle((x, y), 1, 1, fc='purple', ec="black")
 		            plt.gca().add_patch(rectangle)
-		        if maze[y][x] == 2:
+		        if maze[x][y] == 2:
 		            rectangle = plt.Rectangle((x, y), 1, 1, fc='green', ec="black")
+		            plt.gca().add_patch(rectangle)
+		        if maze[x][y] == -3:
+		            rectangle = plt.Rectangle((x, y), 1, 1, fc='red', ec="black")
+		            plt.gca().add_patch(rectangle)
+		        if maze[x][y] == 3:
+		            rectangle = plt.Rectangle((x, y), 1, 1, fc='gray', ec="black")
 		            plt.gca().add_patch(rectangle)
 
 		plt.axis('scaled')

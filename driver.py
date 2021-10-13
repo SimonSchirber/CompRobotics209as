@@ -1,12 +1,12 @@
 from GridWorldMDP import GridWorldMDP
 from Solver import Solver
 
-agent_state = 0
+agent_state = 7*10+8
 mdp = GridWorldMDP(10, 10, agent_state)
 
 # Policy Iteration
 solver = Solver(mdp)
-policy = solver.policyIteration(0.2, 0.7)
+policy = solver.policyIteration(0.2, 0.9)
 mdp.startAgent(policy, 15)
 
 # Value Iteration
