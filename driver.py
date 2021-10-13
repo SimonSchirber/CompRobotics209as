@@ -4,10 +4,16 @@ from Solver import Solver
 agent_state = 0
 mdp = GridWorldMDP(10, 10, agent_state)
 
+# Policy Iteration
 solver = Solver(mdp)
-iterations = 10
-policy = solver.valueIteration(iterations, 0.8)
-mdp.startAgent(policy, 20)
+policy = solver.policyIteration(0.2, 0.7)
+mdp.startAgent(policy, 15)
+
+# Value Iteration
+# solver = Solver(mdp)
+# iterations = 10
+# policy = solver.valueIteration(iterations, 0.8)
+# mdp.startAgent(policy, 20)
 
 # while True:
 # 	mdp.visualise()
