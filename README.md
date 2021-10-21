@@ -19,3 +19,9 @@ This week the script was redesigned to take in an action, and generate probabili
 
 We need to come up with a more general function/script that can take in any list of States, Actions, Probabilities, and Observations as this can only handle specific scenarios.
 
+##Week 3:
+This week learned about the complexity of adding multiple agents to the system. Everytime an agent is added to the system, the state space, and action space increases expontentially for n agents by S' = |S|^n and A' = |A|^n, and also the transistion increases by P^3N. Computational complexity also increases even more rapidly for policy and value iteration as more actions and more states are multiplied by each other resulting in a compuding exponential increase in computation. For this reason basis functions are used, which can help to simplify the problem, however choosing the correct basis functions is key to discovering good/optimal policies yet requiring less computation.
+
+##Week 4:
+
+
