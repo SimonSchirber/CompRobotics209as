@@ -24,4 +24,5 @@ This week learned about the complexity of adding multiple agents to the system. 
 
 ## Week 4:
 
+Added BFS and DFS function. Still would like to include graphical representation of path choosing while iterating to see processes, and potentially create RRT method.
 
