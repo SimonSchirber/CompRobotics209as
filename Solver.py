@@ -1,6 +1,7 @@
 
 import copy
 import numpy as np
+from collections import deque
 
 class Solver():
 
@@ -98,4 +99,26 @@ class Solver():
 				break
 
 		return policy
+
+	def BFS(self, start_state, goal_state):
+		mdp = self.mdp
+		Q = deque()
+		Q.append(start_state)
+		Visited = np.zeros(mdp.Nstates)
+		Visited[start_state] = 1 # mark state visited
+		while Q:
+			curr_state = Q.popleft()
+			if curr_state==goal_state:
+				print("FOUND")
+				return 1
+			for state in mdp.getValidNextStates(curr_state):
+				if !Visited[state]:
+					Q.append(state)
+					Visited[state]=1
+
+		print("NOT-FOUND")
+		return 0
+
+
+
 
