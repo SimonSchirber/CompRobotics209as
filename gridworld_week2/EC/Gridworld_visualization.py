@@ -29,6 +29,8 @@ road_list = []
 vertical_x_cord = 4
 for y in range(y_dim):
     road_list.append([vertical_x_cord, y])
+#transistion probability error
+prob_error = .1  
 
 ##Setup Problem with S, A, P, O definitions
 #States: in this case create 2d grid map, and each block in x,y corresponds to a state 
@@ -86,7 +88,7 @@ def transitions_possible(current_state):
 def transition(current_state, input_action): #where iput action is in action verb list
     action_list_to_list = action_vector[action_list.index(input_action)]
     print("action list to list is "  + str(action_list_to_list))
-    prob_error = .1 #problem specific input  
+    
     action_input_list = [input_action] #creating a list which has intended action first, followed by other actions to correspond to probability list
     for action in action_list:  
         if input_action != action:
@@ -126,7 +128,7 @@ def observation(current_state):
         observation_list = [math.ceil(h), math.floor(h)] #possible observations
         observation_probs = [(1- (math.ceil(h) - h)),(math.ceil(h) - h)] #probabilities corresponding possible observations
         observed_actual = np.random.choice(observation_list, p = observation_probs)
-        print("Observed harmonic mean " + str(observed_actual))
+        print("Observed distance " + str(observed_actual))
 
 def drawmaze(current_state, maze): 
     plt.axes()
@@ -166,7 +168,10 @@ def show_maze(current_state):
         maze[ic[1]][ic[0]] = 4
     for road in road_list: #add obstacles
         maze[road[1]][road[0]] = 3
-    maze[current_state[1]][current_state[0]] = 2 #add spot
+    try:
+        maze[current_state[1]][current_state[0]] = 2 #add current spot
+    except:
+        pass
     
     drawmaze(current_state, maze)
 

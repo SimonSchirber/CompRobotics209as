@@ -1,8 +1,7 @@
 # CompRobotics209as
 Computational Robotics
 
-## To Run
-python3 driver.py
+
 
 ## Week 1:
 The grid dimensions, obstacles, icecream stops, road stops, and intial position are defined.
@@ -26,3 +25,22 @@ This week learned about the complexity of adding multiple agents to the system. 
 
 Added BFS and DFS function. Still would like to include graphical representation of path choosing while iterating to see processes, and potentially create RRT method.
 
+## Week 5:
+
+Implemented rrt method to solve the chess night problem. You can insert any starting position and any desired position and the algorithm will solve one way to get to that state. The action space for the knight is defined as:
+A={UpUpRight,UpUpLeft,LeftLeftUp,LeftLeftDown,DownDownLeft,DownDownRight,RightRightDown,RightRightUp}
+The biggest troubles occured in orginally keeping track of paths already traversed and retracing back when there was no further state to explore for a given state. It should be noted that it is in no way an optimal way to get to a desired state, but more of a "brute force" approach. It should be noted that if we try to add some reward or incentivization for moving in the general direction, it both complicates the algorithem (as the iterations that were incentivised to taken or not taken have to be noted) and may not necessarily work. For example when the night is close to the state sometimes a farter distance in squares away from the reward is less close in terms of states to the reward. For larger systems this is less at play.
+
+## Week 6:
+
+Bayes Filter was implemented. This filter was implemented by taking a function which samples observations and creates a functions which generates a probaility of the observations, giving assumed states. Where the assuemed state and given observations overlap the most bassed on Gausssian distributions is how the Believed state for a given time t Bel(t) gets updated. The state estimation system is useful for real life scenarios with sensors which provide a given observation. In computation it is easy to know the exact stae, becuase you are determining the dynamics and position with code, but in real life not know a state observations are needed, and state estimations like Bayesian filters are useful.
+
+## Week 7:
+Kalman Filter:
+
+
+## Week 8:
+Reinforcement Learning
+
+## Week 9:
+Imitation Learnin
