@@ -37,10 +37,10 @@ Bayes Filter was implemented. This filter was implemented by taking a function w
 
 ## Week 7:
 Kalman Filter:
-
+The Kallman filter is useful for being able to tolerate statistical noise while producing current state estimates based on the noise using normal (Gaussian) probability distributions. It first does a prediction of current state variables and its assumed variablilities. after an observation occurs, it compare the value against its prediction, and updates the satte estimate accordingly using weights. 
 
 ## Week 8:
 Reinforcement Learning
 
 ## Week 9:
-Imitation Learnin
+Imitation Learning: This weeks focus was on the final project, using imitation learning, specifically behavioral cloning to implement a character prediction algorithm. See readme in week9 for details on how to operate.
