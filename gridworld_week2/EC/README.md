@@ -7,7 +7,7 @@ The grid dimensions, obstacles, icecream stops, road stops, and intial position 
 The script lists/defines:
 - All states, which is equivalent to every spot on the grid
 - All transitions, which are mathematically defined as [State, action, State] and include transitions that have non-zero probability
-- Harmoni mean distance h from ice cream stores
+- Harmonic mean distance (H) from ice cream stores
 - Number of possible transitions: 3125
 - Number of non-zero probabilty transitions: 73 (around 2.3% of transitions non-zero probability)
 - Which transition user attempted, if there was a barrier, if there was an error in transition causing an uninteneded transition (caused by uncertainity in transitions, set prob_error to 0 if desired to have no erri) 
@@ -19,7 +19,7 @@ The script was redesigned to take in an action, and generate probabilites for tr
 The display was designed to have easy access to be able to import policies based on various algorithms later learned in the class to test their feasability and be able to visualize how the robot is navigating with said policy.
 
 ## How to Run 
--Navigate to Gridworld visualization.py
--Change initial variables in the first lines if you want to change the setup (obstacles, transition error, ice cream spot, road spots, dimensionality of gridworld), otherwise they will be default setup from class problem with .1 transition error.
--Run the script. Additionally, if desired insert an algorthmic policy where you would like to control the actions of the based on either the observation or actual state where th design will output states as [x,y] positions starting at [0,0] in bottom left, and will take in actions as the string "Up", "Down", "Left", "Right", "Stay"
--In the trerminal where it lists "desired input action is:" type u, d, l, r, s, or q for up, down , left, right, stay, or quit respectively. The robot is displayed in green, road obstacles in red, barrieiers in grey, and ice cream stores in pink.
+- Navigate to Gridworld visualization.py
+- Change initial variables in the first lines if you want to change the setup (obstacles, transition error, ice cream spot, road spots, dimensionality of gridworld), otherwise they will be default setup from class problem with .1 transition error.
+- Run the script. Additionally, if desired insert an algorthmic policy where you would like to control the actions of the based on either the observation or actual state where th design will output states as [x,y] positions starting at [0,0] in bottom left, and will take in actions as the string "Up", "Down", "Left", "Right", "Stay"
+- In the trerminal where it lists "desired input action is:" type u, d, l, r, s, or q for up, down , left, right, stay, or quit respectively. The robot is displayed in green, road obstacles in red, barrieiers in grey, and ice cream stores in pink.
